@@ -1,0 +1,16 @@
+{
+    "name": "n8n-deepseek-node",
+    "version": "1.0.0",
+    "description": "Custom n8n node for DeepSeek API",
+    "main": "dist/DeepSeek.node.js",
+    "scripts": {
+      "build": "tsc",
+      "start": "node dist/DeepSeek.node.js"
+    },
+    "dependencies": {
+      "n8n-workflow": "^0.200.0"
+    },
+    "devDependencies": {
+      "typescript": "^5.0.0"
+    }
+  }
