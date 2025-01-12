@@ -1,4 +1,11 @@
-import type { INodeType, INodeTypeDescription, IExecuteFunctions } from 'n8n-workflow';
+import type {
+  INodeType,
+  INodeTypeDescription,
+  IExecuteFunctions,
+  INodeExecutionData,
+  INodeProperties,
+  NodePropertyTypes,
+} from 'n8n-workflow';
 import { NodeConnectionType } from 'n8n-workflow';
 import { chatFields, chatOperations } from './ChatDescription';
 import { FIMFields, fimOperations } from './FIMDescription';
@@ -31,7 +38,7 @@ export class DeepSeek implements INodeType {
       {
         displayName: 'Resource',
         name: 'resource',
-        type: 'options',
+        type: 'options' as NodePropertyTypes, // Use 'options' as NodePropertyTypes
         noDataExpression: true,
         options: [
           {
@@ -45,10 +52,10 @@ export class DeepSeek implements INodeType {
         ],
         default: 'chat',
       },
-      ...chatOperations,
-      ...fimOperations,
-      ...chatFields,
-      ...FIMFields,
+      ...chatOperations.map((operation) => ({ ...operation, type: 'options' as NodePropertyTypes })), // Use 'options' as NodePropertyTypes
+      ...fimOperations.map((operation) => ({ ...operation, type: 'options' as NodePropertyTypes })), // Use 'options' as NodePropertyTypes
+      ...chatFields.map((field) => ({ ...field, type: 'string' as NodePropertyTypes })), // Use 'string' as NodePropertyTypes
+      ...FIMFields.map((field) => ({ ...field, type: 'string' as NodePropertyTypes })), // Use 'string' as NodePropertyTypes
     ],
   };
 
