@@ -8,7 +8,7 @@
       "start": "node dist/DeepSeek.node.js"
     },
     "dependencies": {
-      "n8n-workflow": "^0.200.0"
+      "n8n-workflow": "latest"
     },
     "devDependencies": {
       "typescript": "^5.0.0"
